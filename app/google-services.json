@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "693469356678",
+    "firebase_url": "https://happy-morning-e123d.firebaseio.com",
+    "project_id": "happy-morning-e123d",
+    "storage_bucket": "happy-morning-e123d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693469356678:android:66028f42581113bf2be707",
+        "android_client_info": {
+          "package_name": "com.example.happymorning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693469356678-urjsq3k2255d4jamt6r63re8s0v1r1r2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsJuULpMAtwcRUqcVzDxM7GsHt02yIEhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693469356678-urjsq3k2255d4jamt6r63re8s0v1r1r2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

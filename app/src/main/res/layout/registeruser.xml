@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="410dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="380dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/linearlayoutdesign"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/palanquin_dark_medium"
+            android:gravity="center"
+            android:text="Enter your Details here"
+            android:textColor="@color/DetailsBlack"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/nameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/buttonbackgraoud"
+            android:gravity="center"
+            android:hint="NAME"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/DetailsYellow"
+            android:textColorHint="@color/DetailsYellow" />
+
+        <EditText
+            android:id="@+id/usernameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/buttonbackgraoud"
+            android:gravity="center"
+            android:hint="USERNAME"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/DetailsYellow"
+            android:textColorHint="@color/DetailsYellow" />
+
+
+        <RadioGroup
+            android:id="@+id/genderDetails"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radia_id1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="Male"
+                android:textColor="@color/DetailsYellow"
+                android:textSize="20dp" />
+
+            <RadioButton
+                android:id="@+id/radia_id2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Female"
+                android:textColor="@color/DetailsYellow"
+                android:textSize="20dp" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/registerUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/startbutton"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="Register"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@drawable/backbutton" />
+
+</RelativeLayout>

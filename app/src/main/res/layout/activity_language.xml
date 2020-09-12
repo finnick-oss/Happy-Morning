@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/androidLogoDarkBlue"
+    tools:context=".language.LanguageActivity">
+
+    <View
+        android:id="@+id/view10"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/androidLogoBlue" />
+
+    <View
+        android:id="@+id/view11"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/view10"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/androidLogoBlue" />
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/morningsplash" />
+
+    <TextView
+        android:id="@+id/selectLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageLogo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:gravity="center"
+        android:text="Select the language of Quotes and Jokes."
+        android:textColor="@color/androidLogoBlue"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/english"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectLanguage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/buttonbluecolor"
+        android:fontFamily="@font/luckiest_guy"
+        android:padding="5dp"
+        android:text="English"
+        android:textColor="@color/androidLogoBlue"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/hindi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/english"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/buttonbluecolor"
+        android:fontFamily="@font/luckiest_guy"
+        android:padding="5dp"
+        android:text="Hindi"
+        android:textColor="@color/androidLogoBlue"
+        android:textSize="36sp" />
+</RelativeLayout>

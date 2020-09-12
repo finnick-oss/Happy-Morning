@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:background="@color/androidLogoDarkBlue"
+    android:clipToPadding="false"
+    tools:context=".HomeActivity.UserHomeActivity">
+
+    <View
+        android:id="@+id/focus_view"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <requestFocus />
+    </View>
+
+    <TextView
+        android:id="@+id/welcomeUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:gravity="center"
+        android:textColor="@color/DetailsYellow"
+        android:textSize="35sp" />
+
+    <LinearLayout
+        android:id="@+id/optionbutton"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/viewD"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/DetailsYellow" />
+
+        <View
+            android:id="@+id/viewE"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/DetailsYellow" />
+
+        <View
+            android:id="@+id/viewF"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/DetailsYellow" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewF2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@id/optionbutton"
+        android:layout_marginTop="20dp"
+        android:background="@color/DetailsYellow" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/viewF4"
+        android:layout_below="@id/viewF2"
+        android:background="#F4F3F3"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/palanquin_dark_medium"
+                    android:gravity="center"
+                    android:text=' “ Quote of the day "'
+                    android:textColor="@color/DetailsBlack"
+                    android:textSize="40sp" />
+
+                <ImageView
+                    android:id="@+id/quoteImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:adjustViewBounds="true" />
+
+                <TextView
+                    android:id="@+id/jokeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/palanquin_dark_medium"
+                    android:gravity="center"
+                    android:text="- Joke of the day - "
+                    android:textColor="@color/DetailsBlack"
+                    android:textSize="40sp" />
+
+                <ImageView
+                    android:id="@+id/jokeImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:adjustViewBounds="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/linearlayoutdesign"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/shareAndUploadJokesAndQuote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/palanquin_dark_medium"
+                        android:gravity="center"
+                        android:text="Share joke and quote with us."
+                        android:textColor="@color/DetailsYellow"
+                        android:textSize="28sp" />
+
+                    <ImageView
+                        android:id="@+id/uploadImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="20dp"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/uploadimage" />
+
+                    <RadioGroup
+                        android:id="@+id/typeDetails"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radia_id1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="30dp"
+                            android:text="Quote"
+                            android:textColor="@color/DetailsYellow"
+                            android:textSize="20dp" />
+
+                        <RadioButton
+                            android:id="@+id/radia_id2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:text="Joke"
+                            android:textColor="@color/DetailsYellow"
+                            android:textSize="20dp" />
+
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/submitUserQuoteandJokes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/startbutton"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
+                        android:text="share"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewF4"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_above="@id/adminpannel"
+        android:layout_alignParentBottom="false"
+        android:background="@color/DetailsYellow" />
+
+    <LinearLayout
+        android:id="@+id/adminpannel"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/showUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/startbutton"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="User Share "
+            android:visibility="gone" />
+    </LinearLayout>
+
+</RelativeLayout>
+

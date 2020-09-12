@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="1dp"
+    android:background="@drawable/linearlayoutdesign"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/firebaseUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Username"
+        android:textColor="@color/DetailsYellow"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/firebaseGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/luckiest_guy"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Gender"
+        android:textColor="@color/DetailsYellow"
+        android:textSize="24dp" />
+
+</LinearLayout>

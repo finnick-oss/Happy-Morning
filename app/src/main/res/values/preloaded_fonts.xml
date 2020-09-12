@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/calligraffitti</item>
+        <item>@font/croissant_one</item>
+        <item>@font/luckiest_guy</item>
+        <item>@font/macondo</item>
+        <item>@font/palanquin_dark</item>
+        <item>@font/palanquin_dark_medium</item>
+        <item>@font/wallpoet</item>
+    </array>
+</resources>

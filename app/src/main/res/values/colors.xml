@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="WhiteColor">#FFFFFF</color>
+    <color name="TransparentWhite">#CCCCCC</color>
+    <color name="dotsColor">#726E6D</color>
+    <color name="DetailsYellow">#ffe715</color>
+    <color name="DetailsBlack">#101920</color>
+    <color name="textBackground">#FFC107</color>
+
+    <color name="GreetingDialogPeach">#efa37f</color>
+    <color name="GreetingDialogBlue">#01539d</color>
+
+
+    <color name="androidLogoBlue">#25bdd6</color>
+    <color name="androidLogoDarkBlue">#161c60</color>
+
+</resources>

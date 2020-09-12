@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="390dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/linearlayoutdesign"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/startbutton"
+            android:fontFamily="@font/palanquin_dark"
+            android:gravity="center"
+            android:text="Terms and Condition"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/changeLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/startbutton"
+            android:fontFamily="@font/palanquin_dark"
+            android:gravity="center"
+            android:text="Select Language"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/startbutton"
+            android:fontFamily="@font/palanquin_dark"
+            android:gravity="center"
+            android:text="Feedback"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/userLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/startbutton"
+            android:fontFamily="@font/palanquin_dark"
+            android:gravity="center"
+            android:text=" Log out "
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@drawable/backbutton" />
+
+</RelativeLayout>
