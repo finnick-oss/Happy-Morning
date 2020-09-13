@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.happymorning.ConnectivityCheck.InternetConnectivityCheck;
 import com.example.happymorning.HomeActivity.UserHomeActivity;
 import com.example.happymorning.MainActivity;
 import com.example.happymorning.R;
@@ -41,13 +42,26 @@ public class LanguageActivity extends AppCompatActivity {
          englishLanguage = findViewById(R.id.english);
          hindiLanguage = findViewById(R.id.hindi);
 
+
+
+        //Connectivity class object
+
+        final InternetConnectivityCheck connectivityCheck = new InternetConnectivityCheck();
+
+
+
         //English button listener
 
         englishLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Calling method to set User Language
+                if(connectivityCheck.isNetworkAvailable(LanguageActivity.this)){
                 setUserLanguage("English");
+                }
+                else{
+                    Toast.makeText(LanguageActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -56,8 +70,13 @@ public class LanguageActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //Calling method to set User Language
+                if (connectivityCheck.isNetworkAvailable(LanguageActivity.this)) {
+                    setUserLanguage("Hindi");
+                }
+                else{
 
-                setUserLanguage("Hindi");
+                    Toast.makeText(LanguageActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

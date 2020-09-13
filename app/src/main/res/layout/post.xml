@@ -11,23 +11,22 @@
         android:id="@+id/firebaseUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/luckiest_guy"
+        android:fontFamily="@font/palanquin_dark"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Username"
-        android:textColor="@color/DetailsYellow"
+        android:textColor="#FFFFFF"
         android:textSize="24dp" />
 
     <TextView
         android:id="@+id/firebaseGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/luckiest_guy"
+        android:fontFamily="@font/palanquin_dark"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Gender"
-        android:textColor="@color/DetailsYellow"
+        android:textColor="#FFFFFF"
         android:textSize="24dp" />
 
 </LinearLayout>

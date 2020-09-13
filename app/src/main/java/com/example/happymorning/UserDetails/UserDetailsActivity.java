@@ -95,6 +95,9 @@ public class UserDetailsActivity extends AppCompatActivity {
     public void loginUser() {
 
 
+
+
+
         final Dialog dialog = new Dialog(UserDetailsActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.loginuser);
@@ -128,11 +131,13 @@ public class UserDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+
                 if(loginUsername.getText().toString().length()>1) {
 
                     //checking the connectivity is available
 
-                    if (!connectivityCheck.isNetworkAvailable(UserDetailsActivity.this)) {
+                    if (connectivityCheck.isNetworkAvailable(UserDetailsActivity.this)) {
 
                         String loginUserNameInString = loginUsername.getText().toString();
 
@@ -171,6 +176,12 @@ public class UserDetailsActivity extends AppCompatActivity {
     //Method for register the user by showing dialog box
 
     public void registerUser() {
+
+
+
+        //Connectivity class object
+
+        final InternetConnectivityCheck connectivityCheck = new InternetConnectivityCheck();
 
 
         //Showing dialog
@@ -255,7 +266,11 @@ public class UserDetailsActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT)
                                 .show();
                     }
-                    else{
+                    else
+                        if(!connectivityCheck.isNetworkAvailable(UserDetailsActivity.this)){
+
+                            Toast.makeText(UserDetailsActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                        }{
 
                         RadioButton radioButton
                                 = (RadioButton)userGender

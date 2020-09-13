@@ -24,11 +24,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.happymorning.ConnectivityCheck.InternetConnectivityCheck;
 import com.example.happymorning.R;
 import com.example.happymorning.SharedPreference.AutoLogin;
 import com.example.happymorning.UserDetails.UserDetailsActivity;
 import com.example.happymorning.language.LanguageActivity;
 import com.example.happymorning.showallluser.PostListActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -69,6 +75,8 @@ public class UserHomeActivity extends AppCompatActivity {
     private StorageReference mStorageRef;
     private RadioGroup imageType;
 
+    //admob
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +103,12 @@ public class UserHomeActivity extends AppCompatActivity {
         final AutoLogin shared = new AutoLogin(UserHomeActivity.this);
 
 
+        //Connectivity class object
+
+        final InternetConnectivityCheck connectivityCheck = new InternetConnectivityCheck();
+
+
+
         //Testing user is admin or not
 
         if(shared.getUserName().equals("Anurag@admin")){
@@ -116,8 +130,14 @@ public class UserHomeActivity extends AppCompatActivity {
         showUserShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserHomeActivity.this, PostListActivity.class);
-                startActivity(intent);
+                if(connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
+                    Intent intent = new Intent(UserHomeActivity.this, PostListActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -127,35 +147,46 @@ public class UserHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // When submit button is clicked,
-                // Ge the Radio Button which is set
-                // If no Radio Button is set, -1 will be returned
+                //checking internet Connectivity
 
-                int selectedId = imageType.getCheckedRadioButtonId();
+                if (connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
 
-                if (selectedId == -1) {
-                    Toast.makeText(UserHomeActivity.this,
-                            "Please select the type",
-                            Toast.LENGTH_SHORT)
-                            .show();
-                } else if (imageUri == null) {
+                    // When submit button is clicked,
+                    // Ge the Radio Button which is set
+                    // If no Radio Button is set, -1 will be returned
 
-                    Toast.makeText(UserHomeActivity.this,
-                            "Image would not be empty",
-                            Toast.LENGTH_SHORT)
-                            .show();
+                    int selectedId = imageType.getCheckedRadioButtonId();
 
-                } else {
-                    RadioButton radioButton
-                            = (RadioButton) imageType
-                            .findViewById(selectedId);
+                    if (selectedId == -1) {
+                        Toast.makeText(UserHomeActivity.this,
+                                "Please select the type",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    } else if (imageUri == null) {
 
-                    //Calling method to upload image
+                        Toast.makeText(UserHomeActivity.this,
+                                "Image would not be empty",
+                                Toast.LENGTH_SHORT)
+                                .show();
 
-                    updateImage(imageUri, radioButton.getText().toString());
+                    } else {
+                        RadioButton radioButton
+                                = (RadioButton) imageType
+                                .findViewById(selectedId);
 
+                        //Calling method to upload image
+
+                        updateImage(imageUri, radioButton.getText().toString());
+
+                    }
                 }
+                else{
+
+                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                }
+
             }
+
         });
 
 
@@ -198,47 +229,48 @@ public class UserHomeActivity extends AppCompatActivity {
                     }
                 });
 
+        if(connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
 
-        FirebaseDatabase firebaseDatabase;
-        final DatabaseReference databaseReference2;
+            FirebaseDatabase firebaseDatabase;
+            final DatabaseReference databaseReference2;
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference2 = firebaseDatabase.getReference("imageUrls/" + shared.getLanguage());
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            databaseReference2 = firebaseDatabase.getReference("imageUrls/" + shared.getLanguage());
 
-        databaseReference2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
+            databaseReference2.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
 
-                shared.setJokeUri(dataSnapshot.child("Joke").getValue(String.class));
-                shared.setQuoteUri(dataSnapshot.child("Quote").getValue(String.class));
+                    shared.setJokeUri(dataSnapshot.child("Joke").getValue(String.class));
+                    shared.setQuoteUri(dataSnapshot.child("Quote").getValue(String.class));
 
-                quote = findViewById(R.id.quoteImage);
+                    quote = findViewById(R.id.quoteImage);
 
-                Glide
-                        .with(UserHomeActivity.this)
-                        .load(Uri.parse(shared.getQuoteUri()))
-                        .into(quote);
-
-
-                joke = findViewById(R.id.jokeImage);
-                Glide
-                        .with(UserHomeActivity.this)
-                        .load(Uri.parse(shared.getJokeUri()))
-                        .into(joke);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Toast.makeText(UserHomeActivity.this, "Unable to fetch data from firebase", Toast.LENGTH_SHORT).show();
-            }
-        });
+                    Glide
+                            .with(UserHomeActivity.this)
+                            .load(Uri.parse(shared.getQuoteUri()))
+                            .into(quote);
 
 
+                    joke = findViewById(R.id.jokeImage);
+                    Glide
+                            .with(UserHomeActivity.this)
+                            .load(Uri.parse(shared.getJokeUri()))
+                            .into(joke);
 
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Toast.makeText(UserHomeActivity.this, "Unable to fetch data from firebase", Toast.LENGTH_SHORT).show();
+                }
+
+
+            });
+        }
 
 
 
@@ -303,6 +335,34 @@ public class UserHomeActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+        //Admob
+
+
+        mAdView = findViewById(R.id.adView);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+
+        if(shared.getUserName().equals("Anurag@admin")) {
+
+            mAdView.setVisibility(View.GONE);
+
+        }else {
+
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
+
+
+        }
+
 
 
     }  //onCreate
@@ -563,6 +623,7 @@ public class UserHomeActivity extends AppCompatActivity {
         userFeedback = dialog.findViewById(R.id.feedback);
 
 
+        final InternetConnectivityCheck connectivityCheck = new InternetConnectivityCheck();
 
         //User will click on back button
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -604,10 +665,17 @@ public class UserHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //dismissing the dialog and showing feedback dialog
+                if(connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
 
-                dialog.dismiss();
-                showFeedbackDialog();
+                    //dismissing the dialog and showing feedback dialog
+
+                    dialog.dismiss();
+                    showFeedbackDialog();
+                }
+                else{
+
+                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -686,16 +754,25 @@ public class UserHomeActivity extends AppCompatActivity {
         });
 
 
+        final InternetConnectivityCheck connectivityCheck =new InternetConnectivityCheck();
+
         //submit ratings to submit user ratings and feedback
 
         submitRatings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ratingValue == 0.0) {
 
-                    Toast.makeText(UserHomeActivity.this, "Enter Ratings", Toast.LENGTH_SHORT).show();
-                } else {
-                    UploadRatings(dialog);
+                if(connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
+                    if (ratingValue == 0.0) {
+
+                        Toast.makeText(UserHomeActivity.this, "Enter Ratings", Toast.LENGTH_SHORT).show();
+                    } else {
+                        UploadRatings(dialog);
+                    }
+
+                }else{
+
+                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -216,22 +216,34 @@
     <LinearLayout
         android:id="@+id/adminpannel"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
+
 
         <Button
             android:id="@+id/showUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/startbutton"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:text="User Share "
             android:visibility="gone" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-1290189764249392/4993161055">
+
+        </com.google.android.gms.ads.AdView>
+
     </LinearLayout>
+
 
 </RelativeLayout>
 
