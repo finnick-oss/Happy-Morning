@@ -1,11 +1,10 @@
-package com.example.happymorning.UserDetails;
+package com.anvelopers.happymorning.UserDetails;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,12 +17,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.happymorning.ConnectivityCheck.InternetConnectivityCheck;
-import com.example.happymorning.HomeActivity.UserHomeActivity;
-import com.example.happymorning.MainActivity;
-import com.example.happymorning.R;
-import com.example.happymorning.SharedPreference.AutoLogin;
-import com.example.happymorning.language.LanguageActivity;
+import com.anvelopers.happymorning.ConnectivityCheck.InternetConnectivityCheck;
+import com.anvelopers.happymorning.HomeActivity.UserHomeActivity;
+import com.anvelopers.happymorning.R;
+import com.anvelopers.happymorning.SharedPreference.AutoLogin;
+import com.anvelopers.happymorning.language.LanguageActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +44,8 @@ public class UserDetailsActivity extends AppCompatActivity {
     ImageView backButton, backButtonLogin;
     EditText regUsername,regName,loginUsername;
     private RadioGroup userGender;
-
+    //admob
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {  //onCreate Method
@@ -81,6 +85,25 @@ public class UserDetailsActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        //-----------------------------------------------------------------------
+
+
+        //Admob
+
+
+        mAdView = findViewById(R.id.adView2);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
 
 
     }  //onCreate

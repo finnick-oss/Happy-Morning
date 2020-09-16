@@ -43,10 +43,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="sans-serif-thin"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text="Morning"
-            android:textColor="@color/androidLogoBlue"
+            android:textColor="@color/WhiteColor"
             android:textSize="45sp" />
 
     </LinearLayout>
@@ -82,10 +82,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="sans-serif-thin"
+            android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text='" Have a nice day "'
-            android:textColor="@color/androidLogoBlue"
+            android:textColor="@color/WhiteColor"
             android:textSize="22sp" />
 
 

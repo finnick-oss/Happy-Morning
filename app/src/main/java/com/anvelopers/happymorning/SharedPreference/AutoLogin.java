@@ -1,10 +1,7 @@
-package com.example.happymorning.SharedPreference;
+package com.anvelopers.happymorning.SharedPreference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-import com.example.happymorning.HomeActivity.UserHomeActivity;
 
 public class AutoLogin {  //class
 

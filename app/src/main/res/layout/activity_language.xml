@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/androidLogoDarkBlue"
+    android:background="#C7F2F8"
     tools:context=".language.LanguageActivity">
 
     <View
@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/androidLogoBlue" />
+        android:background="@color/GreetingDialogBlue" />
 
     <View
         android:id="@+id/view11"
@@ -23,14 +23,13 @@
         android:layout_below="@id/view10"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@color/androidLogoBlue" />
+        android:background="@color/GreetingDialogBlue" />
 
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_centerHorizontal="false"
-        android:layout_marginLeft="40dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         app:srcCompat="@drawable/morningsplash" />
 
@@ -42,11 +41,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="10dp"
-        android:fontFamily="@font/luckiest_guy"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="Select the language of Quotes and Jokes."
-        android:textColor="@color/androidLogoBlue"
-        android:textSize="24sp" />
+        android:text="Select any language"
+        android:textColor="@color/GreetingDialogBlue"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/english"
@@ -62,7 +61,7 @@
         android:fontFamily="@font/luckiest_guy"
         android:padding="5dp"
         android:text="English"
-        android:textColor="@color/androidLogoBlue"
+        android:textColor="@color/GreetingDialogBlue"
         android:textSize="36sp" />
 
     <Button
@@ -77,6 +76,16 @@
         android:fontFamily="@font/luckiest_guy"
         android:padding="5dp"
         android:text="Hindi"
-        android:textColor="@color/androidLogoBlue"
+        android:textColor="@color/GreetingDialogBlue"
         android:textSize="36sp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-1290189764249392/4993161055">
+
+    </com.google.android.gms.ads.AdView>
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.happymorning;  //Package
+package com.anvelopers.happymorning;  //Package
 
 //Imported packages and classes
 
@@ -6,12 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Toast;
 
-import com.example.happymorning.HomeActivity.UserHomeActivity;
-import com.example.happymorning.SharedPreference.AutoLogin;
-import com.example.happymorning.SliderView.OnboardingActivity;
-import com.example.happymorning.language.LanguageActivity;
+import com.anvelopers.happymorning.HomeActivity.UserHomeActivity;
+import com.anvelopers.happymorning.SharedPreference.AutoLogin;
+import com.anvelopers.happymorning.SliderView.OnboardingActivity;
+import com.anvelopers.happymorning.language.LanguageActivity;
 
 
 public class MainActivity extends AppCompatActivity {  //MainActivity class

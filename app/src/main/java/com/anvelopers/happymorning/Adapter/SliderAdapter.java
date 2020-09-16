@@ -1,4 +1,4 @@
-package com.example.happymorning.Adapter;  //Package
+package com.anvelopers.happymorning.Adapter;  //Package
 
 //imported classes
 
@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-import com.example.happymorning.R;
+import com.anvelopers.happymorning.R;
 
 public class SliderAdapter extends PagerAdapter {  //SliderAdapter Class
 

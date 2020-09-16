@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentBottom="true"
-    android:background="@color/androidLogoDarkBlue"
+    android:background="@color/GreetingDialogBlue"
     android:clipToPadding="false"
     tools:context=".HomeActivity.UserHomeActivity">
 

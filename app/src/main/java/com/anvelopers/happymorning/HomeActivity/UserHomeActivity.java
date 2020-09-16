@@ -1,12 +1,10 @@
-package com.example.happymorning.HomeActivity;
+package com.anvelopers.happymorning.HomeActivity;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -24,12 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.happymorning.ConnectivityCheck.InternetConnectivityCheck;
-import com.example.happymorning.R;
-import com.example.happymorning.SharedPreference.AutoLogin;
-import com.example.happymorning.UserDetails.UserDetailsActivity;
-import com.example.happymorning.language.LanguageActivity;
-import com.example.happymorning.showallluser.PostListActivity;
+import com.anvelopers.happymorning.ConnectivityCheck.InternetConnectivityCheck;
+import com.anvelopers.happymorning.R;
+import com.anvelopers.happymorning.SharedPreference.AutoLogin;
+import com.anvelopers.happymorning.UserDetails.UserDetailsActivity;
+import com.anvelopers.happymorning.language.LanguageActivity;
+import com.anvelopers.happymorning.showallluser.PostListActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -40,17 +38,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -633,6 +627,19 @@ public class UserHomeActivity extends AppCompatActivity {
             }
         });
 
+        //dialog to show terms and condition
+
+        termsAndCondition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //calling dialog method
+
+                showTermsAndCondition(dialog);
+
+            }
+        });
+
         //Logout the user when user will click on logout button
         logoutUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -682,6 +689,38 @@ public class UserHomeActivity extends AppCompatActivity {
 
 
     }  //method to show option bar
+
+
+
+    public void showTermsAndCondition(Dialog dialogMethod){
+
+        //dismissing the previous dialog
+
+        dialogMethod.dismiss();
+
+        //Showing dialog
+
+        final Dialog dialog = new Dialog(UserHomeActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.tearmandcondition);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        //Hooks
+        backButton =  dialog.findViewById(R.id.backButton);
+
+        //User will click on back button
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+
+    }
 
 
 
@@ -814,8 +853,6 @@ public class UserHomeActivity extends AppCompatActivity {
         //feedback testing is remaining
 
         String Feedback=textFeedback.getText().toString();
-
-        Toast.makeText(UserHomeActivity.this, ""+Feedback , Toast.LENGTH_SHORT).show();
 
 
         reference.child("Total_ratings").setValue(Float.toString(totalRatings));

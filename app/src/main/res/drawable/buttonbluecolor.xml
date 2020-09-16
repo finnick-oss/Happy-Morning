@@ -5,6 +5,6 @@
 
     <stroke
         android:width="4dp"
-        android:color="@color/androidLogoBlue" />
+        android:color="@color/GreetingDialogBlue" />
 
 </shape>

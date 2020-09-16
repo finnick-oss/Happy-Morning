@@ -1,4 +1,4 @@
-package com.example.happymorning.language;
+package com.anvelopers.happymorning.language;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,12 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.happymorning.ConnectivityCheck.InternetConnectivityCheck;
-import com.example.happymorning.HomeActivity.UserHomeActivity;
-import com.example.happymorning.MainActivity;
-import com.example.happymorning.R;
-import com.example.happymorning.SharedPreference.AutoLogin;
-import com.example.happymorning.UserDetails.UserDetailsActivity;
+import com.anvelopers.happymorning.ConnectivityCheck.InternetConnectivityCheck;
+import com.anvelopers.happymorning.HomeActivity.UserHomeActivity;
+import com.anvelopers.happymorning.R;
+import com.anvelopers.happymorning.SharedPreference.AutoLogin;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,7 +33,7 @@ public class LanguageActivity extends AppCompatActivity {
     private ImageView backButton;
     private TextView typeConnect;
     private Button englishLanguage,hindiLanguage;
-
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {  //onCreate
@@ -93,6 +96,26 @@ public class LanguageActivity extends AppCompatActivity {
             successful();
 
         }
+
+
+        //-----------------------------------------------------------------------
+
+
+        //Admob
+
+
+        mAdView = findViewById(R.id.adView3);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
 
 

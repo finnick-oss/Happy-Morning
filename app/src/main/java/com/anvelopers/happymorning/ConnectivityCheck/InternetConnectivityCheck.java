@@ -1,4 +1,4 @@
-package com.example.happymorning.ConnectivityCheck;
+package com.anvelopers.happymorning.ConnectivityCheck;
 
 //Imported packages and classes
 

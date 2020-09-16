@@ -8,131 +8,12 @@
     tools:context=".UserDetails.UserDetailsActivity">
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
-
-        <View
-            android:id="@+id/viewA"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/viewB"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/viewC"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/DetailsYellow" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical">
-
-        <View
-            android:id="@+id/viewD"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/viewE"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/viewF"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/DetailsYellow" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/view5"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/view6"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/DetailsYellow" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="vertical">
-
-        <View
-            android:id="@+id/view7"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/view8"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/DetailsYellow" />
-
-        <View
-            android:id="@+id/view9"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/DetailsYellow" />
-    </LinearLayout>
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view2"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="10dp"
         app:lottie_autoPlay="true"
         app:lottie_fileName="tea.json"
@@ -200,6 +81,16 @@
         android:text="Register"
         android:textColor="@color/DetailsYellow"
         android:textSize="24sp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-1290189764249392/4993161055">
+
+    </com.google.android.gms.ads.AdView>
 
 
 </RelativeLayout>

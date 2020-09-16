@@ -1,4 +1,4 @@
-package com.example.happymorning.UserDetails;
+package com.anvelopers.happymorning.UserDetails;
 
 public class UserDetailHolder {  //class
 

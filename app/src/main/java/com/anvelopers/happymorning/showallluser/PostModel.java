@@ -1,4 +1,4 @@
-package com.example.happymorning.showallluser;
+package com.anvelopers.happymorning.showallluser;
 
 public class PostModel {
 

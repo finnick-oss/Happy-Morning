@@ -1,4 +1,4 @@
-package com.example.happymorning.SliderView;  //Package
+package com.anvelopers.happymorning.SliderView;  //Package
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.example.happymorning.Adapter.SliderAdapter;
-import com.example.happymorning.R;
-import com.example.happymorning.UserDetails.UserDetailsActivity;
+import com.anvelopers.happymorning.Adapter.SliderAdapter;
+import com.anvelopers.happymorning.R;
+import com.anvelopers.happymorning.UserDetails.UserDetailsActivity;
 
 
 public class OnboardingActivity extends AppCompatActivity {  //OnboardingActivity class

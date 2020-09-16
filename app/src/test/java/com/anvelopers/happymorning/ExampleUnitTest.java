@@ -1,4 +1,4 @@
-package com.example.happymorning;
+package com.anvelopers.happymorning;
 
 import org.junit.Test;
 

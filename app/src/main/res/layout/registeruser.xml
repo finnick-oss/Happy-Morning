@@ -39,7 +39,7 @@
             android:hint="NAME"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="@color/DetailsYellow"
+            android:textColor="#191918"
             android:textColorHint="@color/DetailsYellow" />
 
         <EditText
@@ -55,7 +55,7 @@
             android:hint="USERNAME"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="@color/DetailsYellow"
+            android:textColor="#191918"
             android:textColorHint="@color/DetailsYellow" />
 
 

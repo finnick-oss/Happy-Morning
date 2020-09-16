@@ -1,4 +1,4 @@
-package com.example.happymorning;
+package com.anvelopers.happymorning;
 
 import android.content.Context;
 
