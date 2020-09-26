@@ -41,7 +41,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="10dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/palanquin_dark"
         android:gravity="center"
         android:text="Select any language"
         android:textColor="@color/GreetingDialogBlue"

@@ -27,9 +27,9 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    implementation 'com.google.firebase:firebase-database:19.3.0'
-    implementation 'com.google.firebase:firebase-storage:19.1.1'
-    implementation 'com.google.firebase:firebase-ads:19.1.0'
+    implementation 'com.google.firebase:firebase-database:19.4.0'
+    implementation 'com.google.firebase:firebase-storage:19.2.0'
+    implementation 'com.google.firebase:firebase-ads:19.4.0'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -41,14 +41,14 @@ dependencies {
 
     //Material design dependency
 
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
 
     //Lottie animation
 
-    implementation "com.airbnb.android:lottie:3.4.1"
+    implementation 'com.airbnb.android:lottie:3.4.2'
 
     //Android material design
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
 
     //ImageCropper Dependency
 
@@ -68,5 +68,9 @@ dependencies {
 
     //Google admob dependency
     implementation 'com.google.android.gms:play-services-ads:19.4.0'
+
+    //native ads with recycler view
+    implementation 'com.github.daoibrahim:AdmobAdvancedNativeRecyclerview:1.0.0'
+
 
 }

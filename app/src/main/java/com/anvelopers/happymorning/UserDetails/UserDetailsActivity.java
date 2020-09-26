@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,10 +16,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anvelopers.happymorning.ConnectivityCheck.InternetConnectivityCheck;
 import com.anvelopers.happymorning.HomeActivity.UserHomeActivity;
+import com.anvelopers.happymorning.MainActivity;
 import com.anvelopers.happymorning.R;
 import com.anvelopers.happymorning.SharedPreference.AutoLogin;
 import com.anvelopers.happymorning.language.LanguageActivity;
@@ -44,6 +47,7 @@ public class UserDetailsActivity extends AppCompatActivity {
     ImageView backButton, backButtonLogin;
     EditText regUsername,regName,loginUsername;
     private RadioGroup userGender;
+    private TextView buttonSkip;
     //admob
     private AdView mAdView;
 
@@ -56,6 +60,9 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         login = findViewById(R.id.login);
         register= findViewById(R.id.register);
+        buttonSkip = findViewById(R.id.skipButton);
+
+        //button listener on skip
 
 
         //button listener
@@ -104,6 +111,35 @@ public class UserDetailsActivity extends AppCompatActivity {
 
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
+
+
+
+            //setting button on click listener
+
+        //Shared preference object for auto login
+
+        final AutoLogin shared = new AutoLogin(UserDetailsActivity.this);
+
+
+        buttonSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               if(shared.getUserName().length()!=0){
+
+                   Intent intent = new Intent(UserDetailsActivity.this,UserHomeActivity.class);
+                   startActivity(intent);
+                   finish();
+
+               }
+               else{
+
+                   Toast.makeText(UserDetailsActivity.this, "Create or Login", Toast.LENGTH_SHORT).show();
+               }
+
+            }
+        });
+
 
 
     }  //onCreate
@@ -158,9 +194,16 @@ public class UserDetailsActivity extends AppCompatActivity {
 
                 if(loginUsername.getText().toString().length()>1) {
 
+                    if(loginUsername.getText().toString().length()<4) {
+
+                        Toast.makeText(UserDetailsActivity.this, "Too short", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
                     //checking the connectivity is available
 
-                    if (connectivityCheck.isNetworkAvailable(UserDetailsActivity.this)) {
+                    else if (connectivityCheck.isNetworkAvailable(UserDetailsActivity.this)) {
 
                         String loginUserNameInString = loginUsername.getText().toString();
 
@@ -269,6 +312,31 @@ public class UserDetailsActivity extends AppCompatActivity {
                     // If no Radio Button is set, -1 will be returned
                     int selectedId = userGender.getCheckedRadioButtonId();
 
+                    if(regName.getText().toString().contains(" ")|| regUsername.getText().toString().contains(" ")) {
+
+                        regName.setError("No space allowed");
+                        regUsername.setError("No space allowed");
+
+
+                    }
+                    else
+                    if(regName.getText().toString().length()>14 || regUsername.getText().toString().length()>14) {
+
+                        regName.setError("too long");
+                        regUsername.setError("too long");
+
+
+                    }
+                    else
+
+                    if(regName.getText().toString().length()<4 || regUsername.getText().toString().length()<4) {
+
+                        regName.setError("too short");
+                        regUsername.setError("too short");
+
+
+                    }
+                    else
                     if(regName.getText().toString().length()<1 && regUsername.getText().toString().length()<1) {
 
                         regName.setError("Please fill the name");
@@ -293,7 +361,9 @@ public class UserDetailsActivity extends AppCompatActivity {
                         if(!connectivityCheck.isNetworkAvailable(UserDetailsActivity.this)){
 
                             Toast.makeText(UserDetailsActivity.this, "Network error", Toast.LENGTH_SHORT).show();
-                        }{
+                        }
+
+                        else{
 
                         RadioButton radioButton
                                 = (RadioButton)userGender

@@ -54,7 +54,7 @@ public class UserHomeActivity extends AppCompatActivity {
     //Instances
 
     private EditText textFeedback;
-    private ImageView backButton, uploadUserImageView, quote, joke;
+    private ImageView backButton, uploadUserImageView, quote, joke,addImage;
     private TextView userName, greetingMsg, userHomeName,userUploadContent;
     private LinearLayout option;
     private String connectType;
@@ -80,9 +80,6 @@ public class UserHomeActivity extends AppCompatActivity {
         //Hooks
         userHomeName = findViewById(R.id.welcomeUserName);
         option = findViewById(R.id.optionbutton);
-        submitUserImage = findViewById(R.id.submitUserQuoteandJokes);
-        uploadUserImageView = findViewById(R.id.uploadImage);
-        imageType = findViewById(R.id.typeDetails);
 
         showUserShare = findViewById(R.id.showUser);
         userUploadContent =findViewById(R.id.shareAndUploadJokesAndQuote);
@@ -90,6 +87,7 @@ public class UserHomeActivity extends AppCompatActivity {
         quote = findViewById(R.id.quoteImage);
         joke = findViewById(R.id.jokeImage);
 
+        addImage = findViewById( R.id.uploadButton);
 
 
         //Shared preference object for auto login
@@ -107,14 +105,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
         if(shared.getUserName().equals("Anurag@admin")){
 
-            userUploadContent.setText("Upload Jokes and Quotes");
             showUserShare.setVisibility(View.VISIBLE);
-
-        }
-        else{
-
-            userUploadContent.setText("Share Jokes and Quotes with us");
-
 
         }
 
@@ -136,92 +127,9 @@ public class UserHomeActivity extends AppCompatActivity {
         });
 
 
-        //Submit image user
-        submitUserImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //checking internet Connectivity
-
-                if (connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
-
-                    // When submit button is clicked,
-                    // Ge the Radio Button which is set
-                    // If no Radio Button is set, -1 will be returned
-
-                    int selectedId = imageType.getCheckedRadioButtonId();
-
-                    if (selectedId == -1) {
-                        Toast.makeText(UserHomeActivity.this,
-                                "Please select the type",
-                                Toast.LENGTH_SHORT)
-                                .show();
-                    } else if (imageUri == null) {
-
-                        Toast.makeText(UserHomeActivity.this,
-                                "Image would not be empty",
-                                Toast.LENGTH_SHORT)
-                                .show();
-
-                    } else {
-                        RadioButton radioButton
-                                = (RadioButton) imageType
-                                .findViewById(selectedId);
-
-                        //Calling method to upload image
-
-                        updateImage(imageUri, radioButton.getText().toString());
-
-                    }
-                }
-                else{
-
-                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-        });
 
 
-        //getting the url from upload image
-        uploadUserImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                //calling choose picture
-
-                choosePicture();
-
-            }
-        });
-
-
-        // Uncheck or reset the radio buttons initially
-
-        imageType.clearCheck();
-
-
-        // Add the Listener to the RadioGroup
-        imageType.setOnCheckedChangeListener(
-                new RadioGroup
-                        .OnCheckedChangeListener() {
-                    @Override
-
-                    // The flow will come here when
-                    // any of the radio buttons in the radioGroup
-                    // has been clicked
-
-                    // Check which radio button has been clicked
-                    public void onCheckedChanged(RadioGroup group,
-                                                 int checkedId) {
-                        // Get the selected Radio Button
-                        RadioButton
-                                radioButton
-                                = (RadioButton) group
-                                .findViewById(checkedId);
-                    }
-                });
 
         if(connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
 
@@ -291,7 +199,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
         else{
 
-            Toast.makeText(this, ""+shared.getJokeUri(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, " This "+shared.getJokeUri(), Toast.LENGTH_SHORT).show();
 
         }
 
@@ -359,10 +267,149 @@ public class UserHomeActivity extends AppCompatActivity {
 
 
 
+        addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                showImageUpload();
+
+            }
+        });
+
+
+
     }  //onCreate
 
 
+    //method for showing image upload by user
 
+    private void showImageUpload() {
+
+        //Showing dialog
+
+        final Dialog dialog = new Dialog(UserHomeActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.useruploadimage);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        //Hooks
+    //    backButton =  dialog.findViewById(R.id.backButton);
+
+        //User will click on back button
+/*        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });*/
+
+
+        submitUserImage =  dialog.findViewById(R.id.submitUserQuoteandJokes);
+        uploadUserImageView =  dialog.findViewById(R.id.uploadImage);
+        imageType =  dialog.findViewById(R.id.typeDetails);
+
+
+        userUploadContent = dialog.findViewById(R.id.shareAndUploadJokesAndQuote);
+
+
+        //getting the url from upload image
+        uploadUserImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //calling choose picture
+
+                choosePicture();
+
+            }
+        });
+
+
+
+        userUploadContent.setText("Upload Jokes and Quotes");
+
+        // Uncheck or reset the radio buttons initially
+
+        imageType.clearCheck();
+
+
+        // Add the Listener to the RadioGroup
+        imageType.setOnCheckedChangeListener(
+                new RadioGroup
+                        .OnCheckedChangeListener() {
+                    @Override
+
+                    // The flow will come here when
+                    // any of the radio buttons in the radioGroup
+                    // has been clicked
+
+                    // Check which radio button has been clicked
+                    public void onCheckedChanged(RadioGroup group,
+                                                 int checkedId) {
+                        // Get the selected Radio Button
+                        RadioButton
+                                radioButton
+                                = (RadioButton) group
+                                .findViewById(checkedId);
+                    }
+                });
+
+
+
+
+        //Submit image user
+        submitUserImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //checking internet Connectivity
+
+                InternetConnectivityCheck connectivityCheck = new InternetConnectivityCheck();
+
+                if (connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
+
+                    // When submit button is clicked,
+                    // Ge the Radio Button which is set
+                    // If no Radio Button is set, -1 will be returned
+
+                    int selectedId = imageType.getCheckedRadioButtonId();
+
+                    if (selectedId == -1) {
+                        Toast.makeText(UserHomeActivity.this,
+                                "Please select the type",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    } else if (imageUri == null) {
+
+                        Toast.makeText(UserHomeActivity.this,
+                                "Image would not be empty",
+                                Toast.LENGTH_SHORT)
+                                .show();
+
+                    } else {
+                        RadioButton radioButton
+                                = (RadioButton) imageType
+                                .findViewById(selectedId);
+
+                        //Calling method to upload image
+
+                        updateImage(imageUri, radioButton.getText().toString(),dialog);
+
+                    }
+                }
+                else{
+
+                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        });
+
+
+    }
 
 
     //-------------------------------------------------------------------------------------------
@@ -408,7 +455,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     //Update Image
 
-    private  void updateImage(Uri imageUploadUri , final String type) {
+    private  void updateImage(Uri imageUploadUri , final String type, Dialog dialog) {
 
 
         //Shared preference object for auto login
@@ -447,6 +494,7 @@ public class UserHomeActivity extends AppCompatActivity {
                                     //Setting the url to database
 
                                     reference2.child(type).setValue(uri.toString());
+
                                     Toast.makeText(UserHomeActivity.this, "Shared Successfully", Toast.LENGTH_SHORT).show();
 
                                     uploadUserImageView.setImageDrawable(getResources().getDrawable(R.drawable.uploadimage));
@@ -488,8 +536,10 @@ public class UserHomeActivity extends AppCompatActivity {
                                     //Setting the url to database
 
                                     reference2.child("url").setValue(uri.toString());
+                                    reference2.child("name").setValue(shared.getName());
                                     Toast.makeText(UserHomeActivity.this, "Shared Successfully", Toast.LENGTH_SHORT).show();
 
+                                    Toast.makeText(UserHomeActivity.this, " name : "+shared.getName(), Toast.LENGTH_SHORT).show();
 
                                     uploadUserImageView.setImageDrawable(getResources().getDrawable(R.drawable.uploadimage));
 
@@ -505,6 +555,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
 
         imageUri = null;
+        dialog.dismiss();
 
     }  //UpdateImage
 
@@ -614,6 +665,7 @@ public class UserHomeActivity extends AppCompatActivity {
         termsAndCondition =dialog. findViewById(R.id.terms);
         languageOption = dialog.findViewById(R.id.changeLanguage);
         logoutUser = dialog.findViewById(R.id.userLogout);
+
         userFeedback = dialog.findViewById(R.id.feedback);
 
 
@@ -647,8 +699,9 @@ public class UserHomeActivity extends AppCompatActivity {
              autoLogin.removeUser(UserHomeActivity.this);
              Intent intent = new Intent(UserHomeActivity.this,UserDetailsActivity.class);
              startActivity(intent);
+             Toast.makeText(UserHomeActivity.this, "Logout SuccessFully", Toast.LENGTH_SHORT).show();
              finish();
-                Toast.makeText(UserHomeActivity.this, "Logout SuccessFully", Toast.LENGTH_SHORT).show();
+
             }
         });
 

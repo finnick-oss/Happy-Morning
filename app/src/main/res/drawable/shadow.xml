@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#DFDCDC"/>
+            <!--shadow Color-->
+        </shape>
+    </item>
+
+
+    <item  android:left="0dp"
+        android:right="0dp"
+        android:top="0dp"
+        android:bottom="15dp">
+
+        <shape android:shape="oval">
+            <solid android:color="#C3C1C1"/>
+            <!--shadow Color-->
+        </shape>
+    </item>
+
+    <item  android:left="0dp"
+        android:right="0dp"
+        android:top="0dp"
+        android:bottom="25dp">
+
+        <shape android:shape="oval">
+            <solid android:color="#888787"/>
+            <!--shadow Color-->
+        </shape>
+    </item>
+
+
+    <item  android:left="0dp"
+        android:right="0dp"
+        android:top="0dp"
+        android:bottom="30dp">
+
+        <shape android:shape="oval">
+            <solid android:color="#838383"/>
+            <!--shadow Color-->
+        </shape>
+    </item>
+
+
+    <item  android:left="0dp"
+        android:right="0dp"
+        android:top="0dp"
+        android:bottom="50dp">
+
+        <shape android:shape="oval">
+            <solid android:color="#424141"/>
+            <!--shadow Color-->
+        </shape>
+    </item>
+
+    <item
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp"
+        android:bottom="60dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/>//Background Color
+        </shape>
+    </item>
+
+
+</layer-list>

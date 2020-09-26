@@ -40,12 +40,14 @@ public class AutoLogin {  //class
 
     //getter and setters for name
 
-    public String getName(String name) {
+    public String getName() {
+        name=sharedPreferences.getString("name","");
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+        sharedPreferences.edit().putString("name", name).commit();
     }
 
 

@@ -5,6 +5,7 @@ package com.anvelopers.happymorning.ConnectivityCheck;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ public class InternetConnectivityCheck {
 
      */
 
-    public boolean isNetworkAvailable(Context context) {     //method
+ /*   public boolean isNetworkAvailable(Context context) {     //method
 
         //ConnectivityManager object
 
@@ -31,10 +32,6 @@ public class InternetConnectivityCheck {
 
                 NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
 
-                //Testing all the type of network availabilities
-
-
-                Toast.makeText(context, ""+capabilities.getLinkDownstreamBandwidthKbps(), Toast.LENGTH_SHORT).show();
 
                 if (capabilities != null) {  //Testing Network Capabilities
 
@@ -57,5 +54,23 @@ public class InternetConnectivityCheck {
 
     }  //method
 
+
+  */
+
+    public static boolean isNetworkAvailable(Context ctx) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) ctx
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if ((connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
+                || (connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
+                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+                .getState() == NetworkInfo.State.CONNECTED)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

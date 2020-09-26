@@ -9,6 +9,8 @@
     android:clipToPadding="false"
     tools:context=".HomeActivity.UserHomeActivity">
 
+
+
     <View
         android:id="@+id/focus_view"
         android:layout_width="fill_parent"
@@ -28,12 +30,12 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/luckiest_guy"
         android:gravity="center"
-        android:textColor="@color/DetailsYellow"
-        android:textSize="35sp" />
+        android:textColor="@color/WhiteColor"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:id="@+id/optionbutton"
-        android:layout_width="40dp"
+        android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
@@ -44,21 +46,21 @@
             android:id="@+id/viewD"
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/DetailsYellow" />
+            android:background="@color/WhiteColor" />
 
         <View
             android:id="@+id/viewE"
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/DetailsYellow" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/WhiteColor" />
 
         <View
             android:id="@+id/viewF"
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/DetailsYellow" />
+            android:background="@color/WhiteColor" />
     </LinearLayout>
 
     <View
@@ -95,7 +97,7 @@
                     android:gravity="center"
                     android:text=' “ Quote of the day "'
                     android:textColor="@color/DetailsBlack"
-                    android:textSize="40sp" />
+                    android:textSize="24sp" />
 
                 <ImageView
                     android:id="@+id/quoteImage"
@@ -117,7 +119,7 @@
                     android:gravity="center"
                     android:text="- Joke of the day - "
                     android:textColor="@color/DetailsBlack"
-                    android:textSize="40sp" />
+                    android:textSize="24sp" />
 
                 <ImageView
                     android:id="@+id/jokeImage"
@@ -129,81 +131,20 @@
                     android:layout_marginBottom="20dp"
                     android:adjustViewBounds="true" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/linearlayoutdesign"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/shareAndUploadJokesAndQuote"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/palanquin_dark_medium"
-                        android:gravity="center"
-                        android:text="Share joke and quote with us."
-                        android:textColor="@color/DetailsYellow"
-                        android:textSize="28sp" />
-
-                    <ImageView
-                        android:id="@+id/uploadImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="20dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/uploadimage" />
-
-                    <RadioGroup
-                        android:id="@+id/typeDetails"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radia_id1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="30dp"
-                            android:text="Quote"
-                            android:textColor="@color/DetailsYellow"
-                            android:textSize="20dp" />
-
-                        <RadioButton
-                            android:id="@+id/radia_id2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="30dp"
-                            android:text="Joke"
-                            android:textColor="@color/DetailsYellow"
-                            android:textSize="20dp" />
-
-                    </RadioGroup>
-
-                    <Button
-                        android:id="@+id/submitUserQuoteandJokes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginBottom="30dp"
-                        android:background="@drawable/startbutton"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp"
-                        android:text="share"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
 
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/uploadButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="100dp"
+        app:srcCompat="@drawable/plus" />
 
     <View
         android:id="@+id/viewF4"

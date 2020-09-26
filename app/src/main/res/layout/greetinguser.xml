@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="390dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp">
 
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:background="@drawable/greetingdialog"
         android:orientation="vertical"
 
         >
 
 
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/backbutton" />
+
         <TextView
             android:id="@+id/greetings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
             android:fontFamily="@font/luckiest_guy"
             android:gravity="center"
             android:textColor="@color/DetailsYellow"
@@ -32,7 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/luckiest_guy"
             android:gravity="center"
@@ -48,13 +60,5 @@
 
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="2dp"
-        app:srcCompat="@drawable/backbutton" />
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C0F0F6"
+    android:background="@color/WhiteColor"
     android:orientation="vertical"
     tools:context=".showallluser.PostListActivity">
 
@@ -16,14 +16,15 @@
         android:fontFamily="@font/luckiest_guy"
         android:gravity="center"
         android:text="Hi ! Admin user details"
-        android:textColor="#2196F3"
+        android:textColor="@color/DetailsBlack"
         android:textSize="36sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_below="@id/textView6"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="70dp">
 
     </androidx.recyclerview.widget.RecyclerView>

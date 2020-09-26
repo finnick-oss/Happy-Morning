@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="390dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp">
 
     <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/linearlayoutdesign"
         android:orientation="vertical">
 
 
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/backbutton" />
+
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
             android:fontFamily="@font/luckiest_guy"
             android:gravity="center"
             android:text="Rate us"
             android:textColor="@color/textBackground"
-            android:textSize="40sp" />
+            android:textSize="24sp" />
 
 
         <RatingBar
@@ -32,7 +40,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:progressTint="@color/DetailsYellow"
             android:stepSize="1" />
@@ -63,19 +73,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/startbutton"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:text="Submit" />
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="2dp"
-        app:srcCompat="@drawable/backbutton" />
 
 </RelativeLayout>

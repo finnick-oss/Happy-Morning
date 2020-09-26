@@ -24,8 +24,8 @@ public class PostAdapter extends FirebaseRecyclerAdapter<PostModel, PostAdapter.
     @Override
     protected void onBindViewHolder(@NonNull PostViewHolder holder, int position, @NonNull PostModel model) {
 
-        holder.username.setText("Username : "+model.getUserName());
-        holder.usergender.setText("Gender : "+model.getGender());
+        holder.username.setText("Username  :   "+model.getUserName());
+        holder.usergender.setText("Gender       :   "+model.getGender());
 
 
     }
