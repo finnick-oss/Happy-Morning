@@ -26,32 +26,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/luckiest_guy"
         android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="2dp"
         android:textColor="@color/WhiteColor"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/optionbutton"
-        android:layout_width="35dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
         android:orientation="vertical">
 
         <View
             android:id="@+id/viewD"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="2dp"
             android:background="@color/WhiteColor" />
 
         <View
             android:id="@+id/viewE"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="2dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@color/WhiteColor" />
@@ -59,7 +63,7 @@
         <View
             android:id="@+id/viewF"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="2dp"
             android:background="@color/WhiteColor" />
     </LinearLayout>
 
@@ -68,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_below="@id/optionbutton"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@color/DetailsYellow" />
 
     <LinearLayout
@@ -76,12 +80,14 @@
         android:layout_height="match_parent"
         android:layout_above="@id/viewF4"
         android:layout_below="@id/viewF2"
-        android:background="#F4F3F3"
+        android:background="@color/WhiteColor"
         android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbarThumbHorizontal="@null"
+            android:scrollbarThumbVertical="@null">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,45 +97,135 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/palanquin_dark_medium"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif-medium"
                     android:gravity="center"
-                    android:text=' “ Quote of the day "'
+                    android:paddingLeft="10dp"
+                    android:text="Todays Quotes "
                     android:textColor="@color/DetailsBlack"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/quoteImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="5dp"
                     android:adjustViewBounds="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/normalText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="sans-serif-light"
+                        android:inputType="textCapCharacters"
+                        android:paddingStart="10dp"
+                        android:paddingRight="10dp"
+                        android:text="-Happy Morning"
+                        android:textAllCaps="false"
+                        android:textColor="@color/DetailsBlack"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/shareImage"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.1"
+                        app:srcCompat="@android:drawable/ic_menu_share" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/jokeText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/palanquin_dark_medium"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif-medium"
                     android:gravity="center"
-                    android:text="- Joke of the day - "
+                    android:paddingLeft="10dp"
+                    android:text="Todays Joke "
                     android:textColor="@color/DetailsBlack"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:id="@+id/jokeImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="5dp"
                     android:adjustViewBounds="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fetchingUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="0.9"
+                        android:fontFamily="sans-serif-light"
+                        android:inputType="textCapCharacters"
+                        android:paddingStart="10dp"
+                        android:paddingRight="10dp"
+                        android:text="-Happy Morning"
+                        android:textAllCaps="false"
+                        android:textColor="@color/DetailsBlack"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/shareImage2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.1"
+                        app:srcCompat="@android:drawable/ic_menu_share" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shadow"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/userQuotes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="user Quotes"
+                        android:textColor="@color/DetailsBlack"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/userJokes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="User Jokes"
+                        android:textColor="@color/DetailsBlack"
+                        android:textSize="16sp" />
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -139,11 +235,12 @@
     <ImageView
         android:id="@+id/uploadButton"
         android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_height="46dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/circularshadow"
         app:srcCompat="@drawable/plus" />
 
     <View
@@ -167,11 +264,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/startbutton"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:text="User Share "
+            android:gravity="center"
+            android:text="users"
             android:visibility="gone" />
 
         <com.google.android.gms.ads.AdView

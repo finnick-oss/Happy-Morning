@@ -20,12 +20,6 @@
             android:background="@drawable/linearlayoutdesign"
             android:orientation="vertical">
 
-            <View
-                android:id="@+id/viewF5"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/WhiteColor" />
-
             <TextView
                 android:id="@+id/shareAndUploadJokesAndQuote"
                 android:layout_width="wrap_content"
@@ -38,12 +32,6 @@
                 android:text="Share joke and quote with us."
                 android:textColor="@color/WhiteColor"
                 android:textSize="18sp" />
-
-            <View
-                android:id="@+id/viewF3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/WhiteColor" />
 
             <ImageView
                 android:id="@+id/uploadImage"
@@ -89,7 +77,9 @@
                 android:id="@+id/viewF8"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/WhiteColor" />
 
             <Button
@@ -109,6 +99,8 @@
                 android:id="@+id/viewF7"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/WhiteColor" />
         </LinearLayout>

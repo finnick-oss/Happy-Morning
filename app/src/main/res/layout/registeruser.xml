@@ -51,13 +51,13 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="60dp"
-            android:background="@drawable/buttonbackgraoud"
+            android:background="@drawable/shadow"
             android:gravity="center"
             android:hint="NAME"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="@color/WhiteColor"
-            android:textColorHint="@color/WhiteColor"
+            android:textColor="@color/DetailsBlack"
+            android:textColorHint="@color/DetailsBlack"
             android:textSize="14sp" />
 
         <EditText
@@ -68,13 +68,13 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="60dp"
-            android:background="@drawable/buttonbackgraoud"
+            android:background="@drawable/shadow"
             android:gravity="center"
             android:hint="USERNAME"
             android:padding="10dp"
             android:singleLine="true"
-            android:textColor="@color/WhiteColor"
-            android:textColorHint="@color/WhiteColor"
+            android:textColor="@color/DetailsBlack"
+            android:textColorHint="@color/DetailsBlack"
             android:textSize="14sp" />
 
 
@@ -120,6 +120,16 @@
             android:paddingRight="50dp"
             android:text="Register"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="Please ! Take the screenshot of Username"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

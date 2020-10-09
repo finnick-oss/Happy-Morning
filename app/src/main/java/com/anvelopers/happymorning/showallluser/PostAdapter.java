@@ -41,7 +41,7 @@ public class PostAdapter extends FirebaseRecyclerAdapter<PostModel, PostAdapter.
         return new PostViewHolder(view);}
 
 
-    class PostViewHolder extends RecyclerView.ViewHolder {
+    public class PostViewHolder extends RecyclerView.ViewHolder {
 
         TextView username,usergender;
 

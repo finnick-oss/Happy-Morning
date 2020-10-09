@@ -49,6 +49,7 @@ public class PostListActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(PostListActivity.this, UserHomeActivity.class);
+                intent.putExtra("connectType","Admin");
                 startActivity(intent);
             }
         });

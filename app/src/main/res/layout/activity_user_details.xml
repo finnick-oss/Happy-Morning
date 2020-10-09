@@ -63,9 +63,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
-        android:background="@drawable/buttonbackgraoud"
+        android:background="@drawable/shadow"
         android:text="Login"
-        android:textColor="@color/DetailsYellow"
+        android:textColor="@color/DetailsBlack"
         android:textSize="24sp" />
 
     <Button
@@ -77,9 +77,9 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="60dp"
-        android:background="@drawable/buttonbackgraoud"
+        android:background="@drawable/shadow"
         android:text="Register"
-        android:textColor="@color/DetailsYellow"
+        android:textColor="@color/DetailsBlack"
         android:textSize="24sp" />
 
     <TextView

@@ -30,6 +30,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.4.0'
     implementation 'com.google.firebase:firebase-storage:19.2.0'
     implementation 'com.google.firebase:firebase-ads:19.4.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -54,6 +55,7 @@ dependencies {
 
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 
+
     //Image Loader Using glide
 
     implementation 'com.github.bumptech.glide:glide:4.11.0'
@@ -71,6 +73,11 @@ dependencies {
 
     //native ads with recycler view
     implementation 'com.github.daoibrahim:AdmobAdvancedNativeRecyclerview:1.0.0'
+
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 
 }

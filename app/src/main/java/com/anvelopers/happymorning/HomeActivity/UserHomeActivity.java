@@ -21,6 +21,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.anvelopers.happymorning.userImageViews.UserUploadImages;
 import com.bumptech.glide.Glide;
 import com.anvelopers.happymorning.ConnectivityCheck.InternetConnectivityCheck;
 import com.anvelopers.happymorning.R;
@@ -42,6 +43,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -58,16 +61,22 @@ public class UserHomeActivity extends AppCompatActivity {
     private TextView userName, greetingMsg, userHomeName,userUploadContent;
     private LinearLayout option;
     private String connectType;
-    private Button termsAndCondition, languageOption, logoutUser, userFeedback, submitRatings, submitUserImage,showUserShare;
+    private Button termsAndCondition, languageOption, logoutUser, userFeedback, submitRatings, submitUserImage,showUserShare,userJokes,userQuotes;
     private RatingBar bar;
     private Float totalRatings;
     private int totalUsers;
     private float ratingValue;
     private FirebaseDatabase rootNode;
     private DatabaseReference reference, reference2;
-    private Uri fileImageUri, imageUri;
+    private Uri fileImageUri, imageUri,resultUri;
     private StorageReference mStorageRef;
     private RadioGroup imageType;
+
+
+    //Sharing images button
+
+    ImageView shareImageQuote,shareImageJoke;
+
 
     //admob
     private AdView mAdView;
@@ -80,14 +89,19 @@ public class UserHomeActivity extends AppCompatActivity {
         //Hooks
         userHomeName = findViewById(R.id.welcomeUserName);
         option = findViewById(R.id.optionbutton);
-
         showUserShare = findViewById(R.id.showUser);
         userUploadContent =findViewById(R.id.shareAndUploadJokesAndQuote);
-
         quote = findViewById(R.id.quoteImage);
         joke = findViewById(R.id.jokeImage);
-
         addImage = findViewById( R.id.uploadButton);
+        userQuotes = findViewById(R.id.userQuotes);
+        userJokes = findViewById(R.id.userJokes);
+
+
+        //ShareImage
+
+        shareImageQuote=findViewById(R.id.shareImage);
+        shareImageJoke = findViewById(R.id.shareImage2);
 
 
         //Shared preference object for auto login
@@ -127,6 +141,48 @@ public class UserHomeActivity extends AppCompatActivity {
         });
 
 
+        userQuotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
+
+                    Intent intent = new Intent(UserHomeActivity.this,UserUploadImages.class);
+                    intent.putExtra("Type","Quote");
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+
+                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+
+
+
+
+        userJokes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(connectivityCheck.isNetworkAvailable(UserHomeActivity.this)) {
+
+                    Intent intent = new Intent(UserHomeActivity.this,UserUploadImages.class);
+                    intent.putExtra("Type","Joke");
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+
+                    Toast.makeText(UserHomeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
 
 
 
@@ -216,7 +272,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
         //Showing dialog box according to connect type
 
-        if(connectType.equals("ShareType") || connectType.equals("Login") ){
+        if(connectType.equals("ShareType") || connectType.equals("Login") ||connectType.equals("UserShare")  || connectType.equals("Admin")){
 
             //Showing welcome user dialog box
 
@@ -272,6 +328,27 @@ public class UserHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 showImageUpload();
+
+            }
+        });
+
+
+
+
+        //Clicklistener for share image
+
+        shareImageQuote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shareImageToWhatsApp(shared.getQuoteUri());
+            }
+        });
+
+        shareImageJoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                shareImageToWhatsApp(shared.getJokeUri());
 
             }
         });
@@ -395,7 +472,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
                         //Calling method to upload image
 
-                        updateImage(imageUri, radioButton.getText().toString(),dialog);
+                        updateImage(resultUri, radioButton.getText().toString(),dialog);
 
                     }
                 }
@@ -441,11 +518,34 @@ public class UserHomeActivity extends AppCompatActivity {
             //Getting the uri from gallery
 
             fileImageUri = data.getData();
-                imageUri = fileImageUri;
-               uploadUserImageView.setImageURI(imageUri);
+            imageUri = fileImageUri;
+            CropImage.activity(fileImageUri)  //cropping the image
+
+                    .setGuidelines(CropImageView.Guidelines.ON)
+                    .setCropShape(CropImageView.CropShape.RECTANGLE)
+                    .setFixAspectRatio(true)
+                    .setAspectRatio(1,1)
+                    .start(this);
+
+
 
         }
 
+
+        //After image will crop again taking the image uri
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                 resultUri = result.getUri();
+
+                uploadUserImageView.setImageURI(resultUri);
+
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+                Toast.makeText(this, "Error While Getting uri", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }  //method
 
@@ -467,7 +567,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
         //getting time
 
-        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        final String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
 
         //Firebase Storage Reference
@@ -515,11 +615,11 @@ public class UserHomeActivity extends AppCompatActivity {
             Calendar cal = Calendar.getInstance();
             Date dateType=cal.getTime();
             DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-            String formattedDate=dateFormat.format(dateType);
+            final String formattedDate=dateFormat.format(dateType);
 
-            reference2 = rootNode.getReference("imageUrls/userUrl/"+shared.getUserName()+"/"+shared.getLanguage()+"/"+type+"/"+date+"/"+formattedDate);
+            reference2 = rootNode.getReference("imageUrls/userUrl/"+shared.getLanguage()+"/"+type+"/"+date+"+"+formattedDate);
 
-            mStorageRef = FirebaseStorage.getInstance().getReference("HappyMorning/Users/"+shared.getUserName()+"/"+shared.getLanguage()+"/"+type+"/"+date+"/"+formattedDate);
+            mStorageRef = FirebaseStorage.getInstance().getReference("HappyMorning/Users/"+shared.getLanguage()+"/"+date+"+"+formattedDate);
 
             final StorageReference riversRef = mStorageRef.child("url");
 
@@ -537,9 +637,9 @@ public class UserHomeActivity extends AppCompatActivity {
 
                                     reference2.child("url").setValue(uri.toString());
                                     reference2.child("name").setValue(shared.getName());
+                                    reference2.child("date").setValue(date+"+"+formattedDate);
                                     Toast.makeText(UserHomeActivity.this, "Shared Successfully", Toast.LENGTH_SHORT).show();
 
-                                    Toast.makeText(UserHomeActivity.this, " name : "+shared.getName(), Toast.LENGTH_SHORT).show();
 
                                     uploadUserImageView.setImageDrawable(getResources().getDrawable(R.drawable.uploadimage));
 
@@ -913,19 +1013,40 @@ public class UserHomeActivity extends AppCompatActivity {
 
         if(Feedback.length()>=3){
             reference2.child(formattedDate).setValue(Feedback);
+            Toast.makeText(this, "Thanks for giving feedback "+ name, Toast.LENGTH_SHORT).show();
         }
         else{
 
             Toast.makeText(this, "Too short", Toast.LENGTH_SHORT).show();
         }
 
-        Toast.makeText(this, "Thanks for giving feedback "+ name, Toast.LENGTH_SHORT).show();
 
         //dismissing the dialog
         dialog.dismiss();
 
     }  //uploading ratings
 
+
+
+
+    //Share Image to whatsApp
+
+    public void shareImageToWhatsApp(String url) {
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, url);
+        intent.setType("text/plain");
+        intent.setPackage("com.whatsapp");
+        startActivity(Intent.createChooser(intent, "send"));
+
+        try {
+            startActivity(intent);
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "What's App not installed", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
 
 

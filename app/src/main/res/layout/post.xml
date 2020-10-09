@@ -6,12 +6,12 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginBottom="1dp"
-    android:background="#CBCFCF"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/shadow"
         android:orientation="horizontal">
 
         <ImageView
@@ -23,9 +23,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
+            android:background="#FBE5A3"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView

@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anvelopers.happymorning">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,18 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".userImageViews.UserUploadImages"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1290189764249392~3596318909"/>
+            android:value="ca-app-pub-1290189764249392~3596318909" />
 
-        <activity android:name="com.anvelopers.happymorning.showallluser.PostListActivity"></activity>
-        <activity android:name="com.anvelopers.happymorning.language.LanguageActivity" />
-        <activity android:name="com.anvelopers.happymorning.HomeActivity.UserHomeActivity" />
-        <activity android:name="com.anvelopers.happymorning.UserDetails.UserDetailsActivity" />
-        <activity android:name="com.anvelopers.happymorning.SliderView.OnboardingActivity" />
-        <activity android:name="com.anvelopers.happymorning.MainActivity">
+        <activity android:name=".showallluser.PostListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".language.LanguageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HomeActivity.UserHomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UserDetails.UserDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SliderView.OnboardingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +44,19 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
+
+
     </application>
 
 </manifest>
